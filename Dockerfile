@@ -1,6 +1,9 @@
 # Use official PHP image with Apache
 FROM php:8.2-apache
 
+# Set Composer to allow root execution
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 # Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
     git curl libpng-dev libonig-dev libxml2-dev zip unzip \
