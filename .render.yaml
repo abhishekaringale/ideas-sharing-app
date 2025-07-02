@@ -4,5 +4,8 @@ services:
     env: docker
     plan: free
     autoDeploy: true
-    buildCommand: ""
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      php artisan config:cache
+      php artisan migrate --force
     startCommand: "apache2-foreground"
